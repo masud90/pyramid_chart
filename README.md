@@ -1,4 +1,4 @@
-![version](https://img.shields.io/github/v/release/masud90/pyramid_chart)
+![GitHub Release](https://img.shields.io/github/v/release/masud90/pyramid_chart) ![release](https://img.shields.io/github/release-date/masud90/pyramid_chart)
 
 # Population Pyramid Chart in Stata
 
