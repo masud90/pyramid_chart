@@ -1,3 +1,5 @@
+![version](https://img.shields.io/github/v/release/masud90/pyramid_chart)
+
 # Population Pyramid Chart in Stata
 
 This repository contains the `pyramid_chart` ado file for creating population pyramid charts in Stata. The `pyramid_chart` program allows you to create informative population pyramids, a type of graph that shows the distribution of a population by age groups and sex.
@@ -13,10 +15,10 @@ This repository contains the `pyramid_chart` ado file for creating population py
 To install the `pyramid_chart` program, download the `pyramid_chart.ado` and `pyramid_chart.sthlp` files and place them in your Stata ado directory or your working directory. You can find or set your Stata ado path using the `adopath` command in Stata.
 
 ## Options
-The pyramid_chart program supports additional options that can be passed to the twoway graph command for further customization.
+The `pyramid_chart` program supports additional options that can be passed to the `twoway` graph command for further customization. All options for `twoway` in stata should work, with the exception of `legend()`, `xlabel`, `ylabel` which are produced using existing labels from the variables passed into the syntax.
 
 ## Example
-Here is an example of how to use the pyramid_chart program:
+Here is an example of how to use the `pyramid_chart` program:
 
 ### Example 1:
 The following example reshapes the dataset into a long dataset containing the three required variables: population, sex, and agegrp.
@@ -48,7 +50,7 @@ The following example reshapes the dataset into a long dataset containing the th
 
 
 ## Documentation
-Detailed documentation for the pyramid_chart program is available in the pyramid_chart.sthlp file. You can access it in Stata using the help command:
+Detailed documentation for the `pyramid_chart` program is available in the [pyramid_chart.sthlp](https://github.com/masud90/pyramid_chart/blob/main/pyramid_chart.sthlp) file. You can access it in Stata using the help command:
 
         help pyramid_chart
 
@@ -56,4 +58,4 @@ Detailed documentation for the pyramid_chart program is available in the pyramid
 Contributions are welcome! If you find a bug or have a feature request, please open an issue on GitHub. If you'd like to contribute code, please fork the repository and submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/masud90/pyramid_chart/blob/main/LICENSE) file for details.
