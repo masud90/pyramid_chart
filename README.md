@@ -1,4 +1,5 @@
-![GitHub Release](https://img.shields.io/github/v/release/masud90/pyramid_chart) ![release](https://img.shields.io/github/release-date/masud90/pyramid_chart)
+![GitHub Tag](https://img.shields.io/github/v/tag/masud90/pyramid_chart?logo=github&label=latest%20version)  ![release](https://img.shields.io/github/release-date/masud90/pyramid_chart) ![Static Badge](https://img.shields.io/badge/published_on-SSC-blue?color=blue&link=https%3A%2F%2Fideas.repec.org%2Fc%2Fboc%2Fbocode%2Fs459350.html)
+
 
 # Population Pyramid Chart in Stata
 
