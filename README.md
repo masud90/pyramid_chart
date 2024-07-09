@@ -1,6 +1,4 @@
-![GitHub Tag](https://img.shields.io/github/v/tag/masud90/pyramid_chart?logo=github&label=latest%20version)  ![release](https://img.shields.io/github/release-date/masud90/pyramid_chart) ![Static Badge](https://img.shields.io/badge/published_on-SSC-blue?color=blue&link=https%3A%2F%2Fideas.repec.org%2Fc%2Fboc%2Fbocode%2Fs459350.html) ![GitHub License](https://img.shields.io/github/license/masud90/pyramid_chart)
-
-![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/masudtweets)
+![GitHub Tag](https://img.shields.io/github/v/tag/masud90/pyramid_chart?logo=github&label=latest%20version)  ![release](https://img.shields.io/github/release-date/masud90/pyramid_chart) [![Static Badge](https://img.shields.io/badge/published_on-SSC-blue?color=blue)](https://ideas.repec.org/c/boc/bocode/s459350.html) ![GitHub License](https://img.shields.io/github/license/masud90/pyramid_chart) [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/masudtweets)](https://twitter.com/masudtweets)
 
 
 
