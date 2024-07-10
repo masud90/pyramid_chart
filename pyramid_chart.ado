@@ -1,6 +1,5 @@
 // Version compatibility
-* version Edits by FRA
-*! version 1.1 07JULY2024  Masud Rahman
+*! version 1.2 10JULY2024  Masud Rahman
 
 // Version compatibility
 program version_tested
