@@ -10,7 +10,7 @@ This repository contains the `pyramid_chart` ado file for creating population py
 
 - Generates population pyramids based on numeric and categorical variables.
 - Allows customization of decimal places for percentage labels.
-- Supports additional `twoway` graph options for further customization.
+- Supports additional `twoway` graph and `scatter` graph options for further customization.
 
 ## Installation
 
