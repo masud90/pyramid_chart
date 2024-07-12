@@ -1,0 +1,11 @@
+@Misc{RePEc:boc:bocode:s459350,
+  author={Masud Rahman},
+  title={{PYRAMID_CHART: Stata module to generate a population pyramid chart}},
+  year=2024,
+  month=Jul,
+  howpublished={Statistical Software Components, Boston College Department of Economics},
+  abstract={pyramid_chart generates a population pyramid chart for a given numeric variable, with categories defined by two categorical variables. The chart displays the distribution of the numeric variable across the levels of the first categorical variable, split by the levels of the second categorical variable.},
+  keywords={population pyramid; Stata},
+  doi={},
+  url={https://ideas.repec.org/c/boc/bocode/s459350.html},
+}
