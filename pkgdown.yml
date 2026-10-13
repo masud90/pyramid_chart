@@ -1,0 +1,9 @@
+pandoc: 3.8.3
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles:
+  pyramid_chart: pyramid_chart.html
+last_built: 2026-10-13T08:42Z
+urls:
+  reference: https://masud90.github.io/pyramid_chart/reference
+  article: https://masud90.github.io/pyramid_chart/articles

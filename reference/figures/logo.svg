@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 600" width="518" height="600" role="img" aria-label="pyramid_chart logo">
+  <polygon points="259,8 509,152 509,448 259,592 9,448 9,152" fill="#16243A" stroke="#4FB3BF" stroke-width="14" stroke-linejoin="round"/>
+  <g>
+    <rect x="218" y="150" width="38" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="150" width="42" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="190" y="183" width="66" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="183" width="72" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="164" y="216" width="92" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="216" width="88" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="144" y="249" width="112" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="249" width="116" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="126" y="282" width="130" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="282" width="126" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="114" y="315" width="142" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="315" width="146" height="26" rx="3" fill="#F2A65A"/>
+    <rect x="106" y="348" width="150" height="26" rx="3" fill="#4FB3BF"/>
+    <rect x="262" y="348" width="148" height="26" rx="3" fill="#F2A65A"/>
+  </g>
+  <line x1="259" y1="140" x2="259" y2="383" stroke="#E8EEF5" stroke-width="2" stroke-dasharray="3 4" opacity="0.7"/>
+  <text x="259" y="455" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="50" font-weight="700" fill="#E8EEF5" letter-spacing="-0.5">pyramid_chart</text>
+</svg>
