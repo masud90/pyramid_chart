@@ -1,101 +1,81 @@
-[![GitHub Tag](https://img.shields.io/github/v/tag/masud90/pyramid_chart?style=flat&logo=github&label=latest%20version)](https://github.com/masud90/pyramid_chart/releases)  [![release](https://img.shields.io/github/release-date/masud90/pyramid_chart?logo=github&style=flat)](https://github.com/masud90/pyramid_chart/releases) [![Static Badge](https://img.shields.io/badge/published_on-SSC-black?style=flat)](https://ideas.repec.org/c/boc/bocode/s459350.html) [![GitHub License](https://img.shields.io/github/license/masud90/pyramid_chart?style=flat)](https://github.com/masud90/pyramid_chart/blob/main/LICENSE) [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/masudtweets)](https://twitter.com/masudtweets)
+# pyramid_chart <a href="https://masud90.github.io/pyramid_chart/"><img src="man/figures/logo.png" align="right" height="139" alt="pyramid_chart logo" /></a>
 
+<!-- badges: start -->
+[![Latest version](https://img.shields.io/github/v/tag/masud90/pyramid_chart?style=flat&logo=github&label=latest%20version)](https://github.com/masud90/pyramid_chart/releases)
+[![Release date](https://img.shields.io/github/release-date/masud90/pyramid_chart?logo=github&style=flat)](https://github.com/masud90/pyramid_chart/releases)
+[![SSC](https://img.shields.io/badge/published_on-SSC-black?style=flat)](https://ideas.repec.org/c/boc/bocode/s459350.html)
+[![Stata 17+](https://img.shields.io/badge/Stata-17%2B-1a5f91?style=flat)](https://www.stata.com/)
+[![License: MIT](https://img.shields.io/github/license/masud90/pyramid_chart?style=flat)](https://github.com/masud90/pyramid_chart/blob/main/LICENSE)
+[![pkgdown](https://github.com/masud90/pyramid_chart/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/masud90/pyramid_chart/actions/workflows/pkgdown.yaml)
+[![Docs](https://img.shields.io/badge/docs-masud90.github.io-4FB3BF?style=flat)](https://masud90.github.io/pyramid_chart/)
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/masudtweets)](https://twitter.com/masudtweets)
+<!-- badges: end -->
 
+`pyramid_chart` is a Stata command that draws a **population pyramid**: a back-to-back horizontal bar chart showing how a population is distributed across age groups (or any ordered category) for two groups, typically male and female. Bars show each category's share of its group's total, labelled with percentages, and the axes, legend and labels are built for you from the variables' value labels.
 
-# Population Pyramid Chart in Stata
-
-This repository contains the `pyramid_chart` ado file for creating population pyramid charts in Stata. The `pyramid_chart` program allows you to create informative population pyramids, a type of graph that shows the distribution of a population by age groups and sex.
-
-## Features
-
-- Generates population pyramids based on numeric and categorical variables.
-- Allows customization of decimal places for percentage labels.
-- Supports additional `twoway` graph and `scatter` graph options for further customization.
+![Population pyramid for the United States, 2000, drawn with pyramid_chart](https://github.com/masud90/pyramid_chart/assets/17425770/3e450523-751f-44e7-b38d-dffc6e0409de)
 
 ## Installation
 
-To install the `pyramid_chart` program, download the `pyramid_chart.ado` and `pyramid_chart.sthlp` files and place them in your Stata ado directory or your working directory. You can find or set your Stata ado path using the `adopath` command in Stata.
+From [SSC](https://ideas.repec.org/c/boc/bocode/s459350.html):
 
-## Options
-The `pyramid_chart` program supports additional options that can be passed to the `twoway` graph command for further customization. All options for `twoway` in stata should work, with the exception of `legend()`, `xlabel`, `ylabel` which are produced using existing labels from the variables passed into the syntax.
+```stata
+ssc install pyramid_chart, replace
+```
 
-## Example
-Here is an example of how to use the `pyramid_chart` program:
+Or manually: download [`pyramid_chart.ado`](https://github.com/masud90/pyramid_chart/blob/main/pyramid_chart.ado) and [`pyramid_chart.sthlp`](https://github.com/masud90/pyramid_chart/blob/main/pyramid_chart.sthlp) into your working directory or a folder on your `adopath`.
 
-### Pre-analysis:
-While reshaping is not required before producing a pyramid chart, it is important that the data is in **long format** before it is fed into the `pyramid_chart` command. As an illustration, the following code reshapes the system-included `pop2000.dta` dataset into a long dataset containing the three required variables: `population`, `sex`, and `agegrp`.
+## Quick start
 
-    sysuse pop2000.dta, clear
-    keep agegrp maletotal femtotal
-    rename maletotal population1
-    rename femtotal population2
-    reshape long population, i(agegrp) j(sex)
-    label define sexlbl 1 "Male" 2 "Female"
-    label values sex sexlbl
-    label variable population "Population"
-    label variable sex "Sex"
-    describe
+The data must be in **long** format: one row per category × group, with a numeric value, a categorical `over()` variable, and a two-level `by()` variable coded 1 and 2 with value labels.
 
-| Variable name | Storage type | Display format | Value label | Variable label |
-|---------------|--------------|----------------|-------------|----------------|
-|agegrp|float|%12.0gc|agelbl|Age group|
-|sex|byte|%10.0g|sexlbl|Sex|
-|population|float|%12.0gc|-|-|
+```stata
+sysuse pop2000, clear
+keep agegrp maletotal femtotal
+rename (maletotal femtotal) (population1 population2)
+reshape long population, i(agegrp) j(sex)
+label define sexlbl 1 "Male" 2 "Female"
+label values sex sexlbl
 
+pyramid_chart population, over(agegrp) by(sex) dec(1) ///
+    title("Population Pyramid for year 2000") subtitle("in percentages") ///
+    xtitle("Percentage") ytitle("Age groups")
+```
 
-### Example 1:
-A basic pyramid chart with minimum mandatory input, and using system generated default options.
+## Syntax
 
-    pyramid_chart population, over(agegrp) by(sex) dec(0)
+```stata
+pyramid_chart varname [if] [in], over(varname) by(varname) dec(#) ///
+    [bar1(barlook_options) bar2(barlook_options) sctopt(scatter_options) twoway_options]
+```
 
-![image](https://github.com/masud90/pyramid_chart/assets/17425770/01457933-4c31-4b28-8f71-d998fd425242)
+| Option | Description |
+|---|---|
+| `over(varname)` | Categorical variable on the vertical axis (e.g. age group). Its value labels become the axis labels. |
+| `by(varname)` | Two-level variable splitting the pyramid: level **1** is drawn left, level **2** right. Value labels feed the legend. |
+| `dec(#)` | Decimal places for the percentage labels on the bars. |
+| `bar1()`, `bar2()` | Appearance of the left and right bars, e.g. `bar1(color(navy)) bar2(color(orange))`. |
+| `sctopt()` | Options for the bar labels, e.g. `sctopt(mlabcolor(blue) mlabsize(small))`. |
+| *twoway_options* | Any other `twoway` option: `title()`, `subtitle()`, `xtitle()`, `ytitle()`, `scheme()`, `note()`, `name()`, … |
 
+The legend and both axis labels are generated from the data, so `legend()`, `xlabel()` and `ylabel()` are not meant to be overridden.
 
-### Example 2:
-Add titles to the graph, add 1 decimal place to the bar labels.
+## Examples
 
-    pyramid_chart population, over(agegrp) by(sex) dec(1) title("Population Pyramid for year 2000") subtitle("in percentages") xtitle("Percentage") ytitle("Age groups")
+Full worked examples, with output, are on the [**package website**](https://masud90.github.io/pyramid_chart/articles/pyramid_chart.html), and in Stata via `help pyramid_chart`.
 
-![image](https://github.com/masud90/pyramid_chart/assets/17425770/3e450523-751f-44e7-b38d-dffc6e0409de)
+| Default | Custom bar-label colour | With a scheme |
+|:-:|:-:|:-:|
+| ![Default output](https://github.com/masud90/pyramid_chart/assets/17425770/01457933-4c31-4b28-8f71-d998fd425242) | ![Blue bar labels](https://github.com/masud90/pyramid_chart/assets/17425770/a70e4c74-3c54-4579-9b2a-a3b8a17cb06e) | ![economist scheme](https://github.com/masud90/pyramid_chart/assets/17425770/bc965d1b-6667-4507-9e8e-64ae7d87376d) |
 
+## Citation
 
-### Example 3:
-Add scatterplot options (for example, for color selection of bar labels).
-
-    pyramid_chart population, over(agegrp) by(sex) dec(1) title("Population Pyramid for year 2000") subtitle("in percentages") xtitle("Percentage") ytitle("Age groups") sctopt(mlabcolor(blue)) 
-
-![image](https://github.com/masud90/pyramid_chart/assets/17425770/a70e4c74-3c54-4579-9b2a-a3b8a17cb06e)
-
-### Example 4:
-Add various schemes to the graph.
-
-    pyramid_chart population, over(agegrp) by(sex) dec(1) title("Population Pyramid for year 2000") subtitle("in percentages") xtitle("Percentage") ytitle("Age groups") sctopt(mlabcolor(blue)) scheme(white_tableau)
-
-![image](https://github.com/masud90/pyramid_chart/assets/17425770/efb56726-b124-48a1-9039-8f4565ca97ff)
-
-    pyramid_chart population, over(agegrp) by(sex) dec(1) title("Population Pyramid for year 2000") xtitle("Percentage") ytitle("Age groups") scheme(economist)
-
-![image](https://github.com/masud90/pyramid_chart/assets/17425770/bc965d1b-6667-4507-9e8e-64ae7d87376d)
-
-
-
-## Documentation
-Detailed documentation for the `pyramid_chart` program is available in the [pyramid_chart.sthlp](https://github.com/masud90/pyramid_chart/blob/main/pyramid_chart.sthlp) file. You can access it in Stata using the help command:
-
-        help pyramid_chart
-
-## Version updates
-- v1.2: released on July 10th, 2024. Submitted to SSC for update.
-  - Bug fixed: color for bars/ bar labels can now be controlled by the user using regular `graph` / `scatter` / `twoway` options.
-  - Bug fixed: typos in [`pyramid_chart.sthlp`](https://github.com/masud90/pyramid_chart/blob/main/pyramid_chart.sthlp) file fixed.
-  - Feature added: now can use scatter plot options `sctopt` inside the syntax.
-
-- v1.1: first release on July 07, 2024. Now the package is available from Stata terminal: `ssc install pyramid_chart`.
+> Rahman, M. (2024). *PYRAMID_CHART: Stata module to generate a population pyramid chart.* Statistical Software Components S459350, Boston College Department of Economics. <https://ideas.repec.org/c/boc/bocode/s459350.html>
 
 ## Contributing
-Contributions are welcome! If you find a bug or have a feature request, please open an issue on GitHub. If you'd like to contribute code, please fork the repository and submit a pull request.
 
-- July 10, 2024: [Fernando Rios-Avila](https://github.com/friosavila) added version check, added dynamic color selection to the left and right bars, and added the ability to use scatter options for coloring the bar labels.
+Bug reports and feature requests are welcome as [issues](https://github.com/masud90/pyramid_chart/issues); code contributions as pull requests. Thanks to [Fernando Rios-Avila](https://github.com/friosavila) for the version check, per-side bar colours and scatter-label options in v1.2.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/masud90/pyramid_chart/blob/main/LICENSE) file for details.
+
+[MIT](https://github.com/masud90/pyramid_chart/blob/main/LICENSE) © Masud Rahman

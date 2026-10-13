@@ -1,0 +1,15 @@
+bibentry(
+  bibtype      = "Misc",
+  key          = "RePEc:boc:bocode:s459350",
+  title        = "{PYRAMID_CHART}: Stata module to generate a population pyramid chart",
+  author       = person("Masud", "Rahman"),
+  year         = "2024",
+  month        = "jul",
+  howpublished = "Statistical Software Components S459350, Boston College Department of Economics",
+  url          = "https://ideas.repec.org/c/boc/bocode/s459350.html",
+  textVersion  = paste(
+    "Rahman, M. (2024). PYRAMID_CHART: Stata module to generate a population pyramid chart.",
+    "Statistical Software Components S459350, Boston College Department of Economics.",
+    "https://ideas.repec.org/c/boc/bocode/s459350.html"
+  )
+)

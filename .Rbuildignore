@@ -1,0 +1,6 @@
+^_pkgdown\.yml$
+^docs$
+^\.github$
+^CITATION\.cff$
+^.*\.ado$
+^.*\.sthlp$

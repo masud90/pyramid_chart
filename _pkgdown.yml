@@ -1,0 +1,31 @@
+url: https://masud90.github.io/pyramid_chart/
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#1a5f91"
+    code-color: "#16243A"
+
+home:
+  title: "pyramid_chart: population pyramid charts in Stata"
+  description: >
+    A Stata command that draws population pyramids from long-format data,
+    with automatic axes, legend and percentage labels.
+  sidebar:
+    structure: [links, license, citation, authors, dev]
+
+navbar:
+  structure:
+    left:  [intro, news]
+    right: [search, github]
+
+authors:
+  Masud Rahman:
+    href: https://github.com/masud90
+  Fernando Rios-Avila:
+    href: https://github.com/friosavila
+
+footer:
+  structure:
+    left: developed_by
+    right: built_with

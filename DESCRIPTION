@@ -1,0 +1,21 @@
+Package: pyramid_chart
+Title: Stata Module to Generate a Population Pyramid Chart
+Version: 1.2
+Authors@R: c(
+    person("Masud", "Rahman", email = "write2masud@gmail.com", role = c("aut", "cre", "cph")),
+    person("Fernando", "Rios-Avila", role = "ctb")
+  )
+Description: A Stata command that draws a population pyramid: back-to-back
+    horizontal bars showing the percentage distribution of a numeric variable
+    across the levels of one categorical variable, split by a two-level
+    categorical variable. Axes, legend and bar labels are built from value
+    labels, and any 'twoway' option can be passed through. This DESCRIPTION
+    file exists only to build the documentation website with 'pkgdown'; the
+    package itself is Stata code, installed with 'ssc install pyramid_chart'.
+License: MIT + file LICENSE
+URL: https://masud90.github.io/pyramid_chart/, https://github.com/masud90/pyramid_chart
+BugReports: https://github.com/masud90/pyramid_chart/issues
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+Config/Needs/website: pkgdown
+Encoding: UTF-8
