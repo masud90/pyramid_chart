@@ -6,7 +6,6 @@
 [![SSC](https://img.shields.io/badge/published_on-SSC-black?style=flat)](https://ideas.repec.org/c/boc/bocode/s459350.html)
 [![Stata 17+](https://img.shields.io/badge/Stata-17%2B-1a5f91?style=flat)](https://www.stata.com/)
 [![License: MIT](https://img.shields.io/github/license/masud90/pyramid_chart?style=flat)](https://github.com/masud90/pyramid_chart/blob/main/LICENSE)
-[![pkgdown](https://github.com/masud90/pyramid_chart/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/masud90/pyramid_chart/actions/workflows/pkgdown.yaml)
 [![Docs](https://img.shields.io/badge/docs-masud90.github.io-4FB3BF?style=flat)](https://masud90.github.io/pyramid_chart/)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/masudtweets)](https://twitter.com/masudtweets)
 <!-- badges: end -->
